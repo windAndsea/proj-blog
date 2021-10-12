@@ -1,4 +1,4 @@
-package com.bandit.blog.article.enums;
+package com.bandit.blog.util.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

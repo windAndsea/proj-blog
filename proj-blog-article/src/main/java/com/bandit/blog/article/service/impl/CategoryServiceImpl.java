@@ -1,11 +1,11 @@
 package com.bandit.blog.article.service.impl;
 
-import com.bandit.blog.article.enums.StatusEnum;
 import com.bandit.blog.article.mapper.CategoryMapper;
 import com.bandit.blog.article.req.CategoryReq;
 import com.bandit.blog.article.service.ICategoryService;
 import com.bandit.blog.entities.Category;
 import com.bandit.blog.util.base.Result;
+import com.bandit.blog.util.enums.StatusEnum;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

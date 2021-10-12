@@ -23,4 +23,11 @@ public interface ICategoryService extends IService<Category> {
      * @return 分类信息
      */
     Result findAllNormal();
+
+    /**
+     * 查询所有正常分类及下的标签集合
+     *
+     * @return 结果集
+     */
+    Result findAllNormalCategoryAndLabel();
 }

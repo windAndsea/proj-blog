@@ -1,6 +1,7 @@
 package com.bandit.blog.entities;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
@@ -9,6 +10,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @ApiModel(value = "Category对象", description = "类别信息表")
 @TableName("t_blog_category")
@@ -39,4 +41,7 @@ public class Category implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private Date updateDate;
 
+    @ApiModelProperty(value = "分类下的标签集合")
+    @TableField(exist = false)
+    private List<Label> labelList;
 }

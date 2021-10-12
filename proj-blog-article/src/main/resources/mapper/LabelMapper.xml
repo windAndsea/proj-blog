@@ -2,4 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bandit.blog.article.mapper.LabelMapper">
 
+    <select id="queryPage" resultType="Label">
+        SELECT
+        l.id,
+        l.category_id,
+        l.`name`,
+        l.create_date,
+        l.update_date,
+        c.`name` category_name
+        FROM
+        t_blog_label l
+        LEFT JOIN t_blog_category c ON l.category_id = c.id
+        <where>
+            <if test="labelReq.name != null and labelReq.name != ''">
+                l.`name` like concat('%', #{labelReq.name}, '%')
+            </if>
+            <if test="labelReq.categoryId != null and labelReq.categoryId != ''">
+                and l.category_id = #{labelReq.categoryId}
+            </if>
+        </where>
+        order by l.update_date desc
+    </select>
 </mapper>

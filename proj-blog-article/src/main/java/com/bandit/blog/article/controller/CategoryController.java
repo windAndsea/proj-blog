@@ -60,4 +60,10 @@ public class CategoryController {
     public Result queryNormalCategory() {
         return categoryService.findAllNormal();
     }
+
+    @ApiOperation("查询正常使用的分类及标签信息")
+    @GetMapping("/label/list")
+    public Result findAllNormalCategoryAndLabel() {
+        return categoryService.findAllNormalCategoryAndLabel();
+    }
 }

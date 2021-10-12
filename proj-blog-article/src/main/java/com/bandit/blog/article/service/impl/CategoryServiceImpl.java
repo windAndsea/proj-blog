@@ -43,11 +43,16 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
+    public Result findAllNormalCategoryAndLabel() {
+        List<Category> categories = baseMapper.findAllNormalCategoryAndLabel();
+        return Result.ok(categories);
+    }
+
+    @Override
     public boolean updateById(Category entity) {
         // 设置更新时间
         entity.setUpdateDate(new Date());
         return super.updateById(entity);
     }
-
 
 }

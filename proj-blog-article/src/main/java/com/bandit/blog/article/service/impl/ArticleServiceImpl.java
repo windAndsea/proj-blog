@@ -127,4 +127,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         baseMapper.updateById(article);
         return Result.ok();
     }
+
+    @Override
+    public Result updateViewCount(String id) {
+        if (StringUtils.isEmpty(id)) {
+            return Result.error("invalid operation");
+        }
+
+        Article article = baseMapper.selectById(id);
+        if (article == null) {
+
+            return Result.error("article is not exist.");
+        }
+        article.setViewCount(article.getViewCount() + 1);
+        baseMapper.updateById(article);
+        return Result.ok();
+    }
 }

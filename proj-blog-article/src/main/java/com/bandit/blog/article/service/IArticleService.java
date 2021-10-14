@@ -60,11 +60,17 @@ public interface IArticleService extends IService<Article> {
     /**
      * 根据文章ID更新点赞数
      *
-     * @param id 文章ID
+     * @param id    文章ID
      * @param count 1：点赞接收， -1取消点赞
      * @return 结果
      */
     Result updateThumbHup(String id, int count);
 
-
+    /**
+     * 更新文章浏览次数
+     *
+     * @param id 文章ID
+     * @return 结果
+     */
+    Result updateViewCount(String id);
 }

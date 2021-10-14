@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 
 @ApiModel(value = "LabelReq对象", description = "标签查询条件")
 @Data
-@Accessors(chain = true)
+@Accessors
 public class LabelReq extends BaseRequest<Label> {
     @ApiModelProperty(value = "标签名称")
     private String name;

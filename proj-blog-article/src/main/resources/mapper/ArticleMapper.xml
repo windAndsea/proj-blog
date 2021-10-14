@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bandit.blog.article.mapper.ArticleMapper">
+    <resultMap id="articleAndLabelMap" type="Article">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_image" property="userImage"/>
+        <result column="title" property="title"/>
+        <result column="summary" property="summary"/>
+        <result column="image_url" property="imageUrl"/>
+        <result column="md_content" property="mdContent"/>
+        <result column="html_content" property="htmlContent"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="thumhup" property="thumhup"/>
+        <result column="status" property="status"/>
+        <result column="ispublic" property="ispublic"/>
+        <result column="create_date" property="createDate"/>
+        <result column="update_date" property="updateDate"/>
+        <collection property="labelList" javaType="list" ofType="Label">
+            <id column="label_id" property="id"/>
+            <result column="label_name" property="name"/>
+        </collection>
+        <collection property="labelIds" javaType="list" ofType="string">
+            <id column="label_id" property="id"/>
+        </collection>
+    </resultMap>
 
+    <select id="findArticleAndLabelById" resultMap="articleAndLabelMap">
+        SELECT a.id,
+               a.user_id,
+               a.nick_name,
+               a.user_image,
+               a.title,
+               a.summary,
+               a.image_url,
+               a.md_content,
+               a.html_content,
+               a.view_count,
+               a.thumhup,
+               a.`status`,
+               a.ispublic,
+               a.create_date,
+               a.update_date,
+               l.id     label_id,
+               l.`name` label_name
+        FROM t_blog_article a
+                 LEFT JOIN t_blog_article_label al ON a.id = al.article_id
+                 LEFT JOIN t_blog_label l ON l.id = al.label_id
+        where a.id = #{id}
+    </select>
+
+    <delete id="deleteArticleLabel">
+        delete
+        from t_blog_article_label
+        where article_id = #{articleId}
+    </delete>
+
+    <insert id="saveArticleLabel">
+        insert into t_blog_article_label(id, article_id, label_id)
+        values
+        <foreach collection="labelIds" item="item" separator=",">
+            ('${@com.baomidou.mybatisplus.core.toolkit.IdWorker@getId()}', #{articleId}, #{item})
+        </foreach>
+    </insert>
 </mapper>

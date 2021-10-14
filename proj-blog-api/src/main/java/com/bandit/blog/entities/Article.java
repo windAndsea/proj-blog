@@ -1,6 +1,7 @@
 package com.bandit.blog.entities;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
@@ -10,6 +11,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -73,5 +75,12 @@ public class Article implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private Date updateDate;
 
+    @ApiModelProperty(value = "所属标签对象集合")
+    @TableField(exist = false)
+    private List<Label> labelList;
+
+    @ApiModelProperty(value = "所属标签Id集合")
+    @TableField(exist = false)
+    private List<String> labelIds;
 
 }

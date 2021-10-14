@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 @ApiModel(value = "请求参数基础类，带分页参数")
 @Data
-@Accessors(chain = true)
+@Accessors
 public class BaseRequest<T> implements Serializable {
     @ApiModelProperty(value = "页码", required = true)
     private Long current;

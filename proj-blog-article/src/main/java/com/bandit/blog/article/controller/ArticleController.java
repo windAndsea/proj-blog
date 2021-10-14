@@ -9,6 +9,7 @@ import com.bandit.blog.util.base.Result;
 import com.bandit.blog.util.enums.ArticleStatusEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -78,5 +79,15 @@ public class ArticleController {
     @PostMapping("/user")
     public Result findListByUserId(@RequestBody ArticleUserReq articleUserReq) {
         return articleService.findListByUserId(articleUserReq);
+    }
+
+    @ApiOperation("更新点赞数")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "文章ID", required = true),
+            @ApiImplicitParam(name = "count", value = "点赞数", required = true)
+    })
+    @PostMapping("/thumb/{id}/{count}")
+    public Result updateThumbHup(@PathVariable("id") String id, @PathVariable("count") int count) {
+        return articleService.updateThumbhup(id, count);
     }
 }

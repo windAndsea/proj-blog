@@ -99,4 +99,32 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         IPage<Article> data = baseMapper.selectPage(articleUserReq.getPage(), queryWrapper);
         return Result.ok(data);
     }
+
+    @Override
+    public Result updateThumbhup(String id, int count) {
+        if (StringUtils.isEmpty(id)) {
+            return Result.error("invalid operation");
+        }
+
+        if (count != -1 && count != 1) {
+            return Result.error("invalid operation");
+        }
+
+        Article article = baseMapper.selectById(id);
+        if (article == null) {
+
+            return Result.error("article is not exist.");
+        }
+        int thumbHup = article.getThumhup();
+
+        int calThumbHup = thumbHup + count;
+        if (calThumbHup < 0) {
+            return Result.error("invalid operation");
+        }
+
+        article.setThumhup(calThumbHup);
+
+        baseMapper.updateById(article);
+        return Result.ok();
+    }
 }

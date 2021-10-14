@@ -64,5 +64,7 @@ public interface IArticleService extends IService<Article> {
      * @param count 1：点赞接收， -1取消点赞
      * @return 结果
      */
-    Result updateThumbhup(String id, int count);
+    Result updateThumbHup(String id, int count);
+
+
 }

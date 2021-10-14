@@ -101,7 +101,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public Result updateThumbhup(String id, int count) {
+    public Result updateThumbHup(String id, int count) {
         if (StringUtils.isEmpty(id)) {
             return Result.error("invalid operation");
         }

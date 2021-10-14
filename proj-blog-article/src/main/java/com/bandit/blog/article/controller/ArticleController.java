@@ -88,6 +88,6 @@ public class ArticleController {
     })
     @PostMapping("/thumb/{id}/{count}")
     public Result updateThumbHup(@PathVariable("id") String id, @PathVariable("count") int count) {
-        return articleService.updateThumbhup(id, count);
+        return articleService.updateThumbHup(id, count);
     }
 }

@@ -59,4 +59,11 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @return 结果
      */
     List<Map<String, String>> selectCategoryArticleTotal();
+
+    /**
+     * 统计近6个月发布的文章记录数（审核通过并公开）
+     *
+     * @return 结果
+     */
+    List<Map<String, String>> selectLatestSixMonthArticleTotal();
 }

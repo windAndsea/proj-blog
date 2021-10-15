@@ -173,4 +173,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         dataMap.put("categoryNameList", nameList);
         return Result.ok(dataMap);
     }
+
+    @Override
+    public Result countLatestSixMonthPublishArticleTotal() {
+        List<Map<String, String>> maps = baseMapper.selectLatestSixMonthArticleTotal();
+        List<String> yearMonthList = new ArrayList<>();
+        List<String> articleTotalList = new ArrayList<>();
+        for (Map<String, String> map : maps) {
+            yearMonthList.add(map.get("year_month"));
+            articleTotalList.add(map.get("total"));
+        }
+
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("yearMonthList", yearMonthList);
+        dataMap.put("articleTotalList", articleTotalList);
+        return Result.ok(dataMap);
+    }
 }

@@ -96,4 +96,11 @@ public interface IArticleService extends IService<Article> {
      * @return 结果
      */
     Result countCategoryArticleRecord();
+
+    /**
+     * 查询近6个月发布的文章记录数
+     *
+     * @return 结果
+     */
+    Result countLatestSixMonthPublishArticleTotal();
 }

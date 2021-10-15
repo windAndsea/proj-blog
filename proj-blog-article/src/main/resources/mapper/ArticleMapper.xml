@@ -95,10 +95,13 @@
     </select>
 
     <select id="selectCategoryArticleTotal" resultType="map">
-        SELECT
-            v.`name`,
-            v.total
-        FROM
-            v_article_category_total v
+        SELECT v.`name`,
+               v.total
+        FROM v_article_category_total v
+    </select>
+
+    <select id="selectLatestSixMonthArticleTotal" resultType="map">
+        select v.`year_month`, v.total
+        from v_article_latest_six_month_publish_total v
     </select>
 </mapper>

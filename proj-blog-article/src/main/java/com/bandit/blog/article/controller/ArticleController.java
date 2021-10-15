@@ -102,4 +102,10 @@ public class ArticleController {
     public Result countCategoryArticleRecord() {
         return articleService.countCategoryArticleRecord();
     }
+
+    @ApiOperation("统计近6个月发布的文章记录数")
+    @GetMapping("/month/total")
+    public Result countLatestSixMonthPublishArticleRecord() {
+        return articleService.countLatestSixMonthPublishArticleTotal();
+    }
 }

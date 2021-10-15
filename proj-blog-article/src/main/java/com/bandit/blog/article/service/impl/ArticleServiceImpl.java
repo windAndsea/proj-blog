@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.util.*;
 
 /**
  * <p>
@@ -158,5 +158,19 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         queryWrapper.eq("ispublic", 1);
         Integer count = baseMapper.selectCount(queryWrapper);
         return Result.ok(count);
+    }
+
+    @Override
+    public Result countCategoryArticleRecord() {
+        List<Map<String, String>> maps = baseMapper.selectCategoryArticleTotal();
+        List<String> nameList = new ArrayList<>();
+        for (Map<String, String> map : maps) {
+            nameList.add(map.get("name"));
+        }
+
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("categoryTotalList", maps);
+        dataMap.put("categoryNameList", nameList);
+        return Result.ok(dataMap);
     }
 }

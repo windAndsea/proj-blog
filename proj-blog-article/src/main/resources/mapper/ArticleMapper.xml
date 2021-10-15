@@ -93,4 +93,12 @@
         </if>
         order by a.update_date desc
     </select>
+
+    <select id="selectCategoryArticleTotal" resultType="map">
+        SELECT
+            v.`name`,
+            v.total
+        FROM
+            v_article_category_total v
+    </select>
 </mapper>

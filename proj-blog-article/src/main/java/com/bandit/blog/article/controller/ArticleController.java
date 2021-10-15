@@ -96,4 +96,10 @@ public class ArticleController {
     public Result countArticleRecord() {
         return articleService.countArticleRecord();
     }
+
+    @ApiOperation("统计不同类别下审核通过并公开的文章记录数")
+    @GetMapping("/category/total")
+    public Result countCategoryArticleRecord() {
+        return articleService.countCategoryArticleRecord();
+    }
 }

@@ -89,4 +89,11 @@ public interface IArticleService extends IService<Article> {
      * @return 统计结果
      */
     Result countArticleRecord();
+
+    /**
+     * 统计分类下的文章数
+     *
+     * @return 结果
+     */
+    Result countCategoryArticleRecord();
 }

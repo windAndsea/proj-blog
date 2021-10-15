@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -46,9 +47,16 @@ public interface ArticleMapper extends BaseMapper<Article> {
     /**
      * 通过分类Id和标签ID查询公开且审核通过的文章信息
      *
-     * @param page 分页信息
+     * @param page           分页信息
      * @param articleListReq 请求参数
      * @return 文章信息
      */
     IPage<Article> findListByCategoryIdAndLabelId(IPage<Article> page, @Param("articleListReq") ArticleListReq articleListReq);
+
+    /**
+     * 统计分类下的文章数
+     *
+     * @return 结果
+     */
+    List<Map<String, String>> selectCategoryArticleTotal();
 }

@@ -90,4 +90,10 @@ public class ArticleController {
     public Result updateThumbHup(@PathVariable("id") String id, @PathVariable("count") int count) {
         return articleService.updateThumbHup(id, count);
     }
+
+    @ApiOperation("统计审核通过并公开的文章记录数")
+    @GetMapping("/total")
+    public Result countArticleRecord() {
+        return articleService.countArticleRecord();
+    }
 }

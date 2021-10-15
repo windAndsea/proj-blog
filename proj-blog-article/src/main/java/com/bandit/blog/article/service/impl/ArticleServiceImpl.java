@@ -150,4 +150,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         IPage<Article> articleIPage = baseMapper.findListByCategoryIdAndLabelId(articleListReq.getPage(), articleListReq);
         return Result.ok(articleIPage);
     }
+
+    @Override
+    public Result countArticleRecord() {
+        QueryWrapper<Article> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("status", ArticleStatusEnum.PASS.getCode());
+        queryWrapper.eq("ispublic", 1);
+        Integer count = baseMapper.selectCount(queryWrapper);
+        return Result.ok(count);
+    }
 }

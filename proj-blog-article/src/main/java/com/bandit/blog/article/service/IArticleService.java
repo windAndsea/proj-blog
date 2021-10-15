@@ -82,4 +82,11 @@ public interface IArticleService extends IService<Article> {
      * @return 文章信息
      */
     Result findListByCategoryIdAndLabelId(ArticleListReq articleListReq);
+
+    /**
+     * 统计审核通过并公开的文章记录数
+     *
+     * @return 统计结果
+     */
+    Result countArticleRecord();
 }

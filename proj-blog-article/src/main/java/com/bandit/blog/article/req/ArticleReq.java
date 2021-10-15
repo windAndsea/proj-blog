@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 @Data
-@Accessors
+@Accessors(chain = true)
 @ApiModel(value = "ArticleReq对象", description = "文章查询条件")
 public class ArticleReq extends BaseRequest<Article> {
     @ApiModelProperty(value = "文章标题")

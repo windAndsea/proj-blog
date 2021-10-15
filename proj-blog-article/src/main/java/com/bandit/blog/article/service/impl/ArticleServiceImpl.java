@@ -1,6 +1,7 @@
 package com.bandit.blog.article.service.impl;
 
 import com.bandit.blog.article.mapper.ArticleMapper;
+import com.bandit.blog.article.req.ArticleListReq;
 import com.bandit.blog.article.req.ArticleReq;
 import com.bandit.blog.article.req.ArticleUserReq;
 import com.bandit.blog.article.service.IArticleService;
@@ -142,5 +143,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         article.setViewCount(article.getViewCount() + 1);
         baseMapper.updateById(article);
         return Result.ok();
+    }
+
+    @Override
+    public Result findListByCategoryIdAndLabelId(ArticleListReq articleListReq) {
+        IPage<Article> articleIPage = baseMapper.findListByCategoryIdAndLabelId(articleListReq.getPage(), articleListReq);
+        return Result.ok(articleIPage);
     }
 }

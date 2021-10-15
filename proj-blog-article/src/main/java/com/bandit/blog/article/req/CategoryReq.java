@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
  */
 @ApiModel(value = "CategoryReq对象", description = "类别查询条件")
 @Data
-@Accessors
+@Accessors(chain = true)
 public class CategoryReq extends BaseRequest<Category> {
     /**
      * 分类名称

@@ -1,5 +1,6 @@
 package com.bandit.blog.article.service;
 
+import com.bandit.blog.article.req.ArticleListReq;
 import com.bandit.blog.article.req.ArticleReq;
 import com.bandit.blog.article.req.ArticleUserReq;
 import com.bandit.blog.entities.Article;
@@ -73,4 +74,12 @@ public interface IArticleService extends IService<Article> {
      * @return 结果
      */
     Result updateViewCount(String id);
+
+    /**
+     * 通过分类Id和标签ID查询公开且审核通过的文章信息
+     *
+     * @param articleListReq 请求参数
+     * @return 文章信息
+     */
+    Result findListByCategoryIdAndLabelId(ArticleListReq articleListReq);
 }

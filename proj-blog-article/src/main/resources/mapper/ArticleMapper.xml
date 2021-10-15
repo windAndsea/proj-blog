@@ -63,4 +63,34 @@
             ('${@com.baomidou.mybatisplus.core.toolkit.IdWorker@getId()}', #{articleId}, #{item})
         </foreach>
     </insert>
+
+    <select id="findListByCategoryIdAndLabelId" resultType="Article">
+        SELECT DISTINCT a.id,
+        a.user_id,
+        a.nick_name,
+        a.user_image,
+        a.title,
+        a.summary,
+        a.image_url,
+        a.md_content,
+        a.html_content,
+        a.view_count,
+        a.thumhup,
+        a.`status`,
+        a.ispublic,
+        a.create_date,
+        a.update_date
+        FROM t_blog_article a
+        LEFT JOIN t_blog_article_label al ON a.id = al.article_id
+        LEFT JOIN t_blog_label l ON al.label_id = l.id
+        WHERE a.ispublic = 1
+        AND a.`status` = 2
+        <if test="articleListReq.labelId != null and articleListReq.labelId != ''">
+            AND l.id = #{articleListReq.labelId}
+        </if>
+        <if test="articleListReq.categoryId != null and articleListReq.categoryId != ''">
+            AND l.category_id = #{articleListReq.categoryId}
+        </if>
+        order by a.update_date desc
+    </select>
 </mapper>

@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 
 @ApiModel(value = "ArticleUserReq对象", description = "获取指定用户文章的查询条件")
 @Data
-@Accessors
+@Accessors(chain = true)
 public class ArticleUserReq extends BaseRequest<Article> {
     @ApiModelProperty(value = "用户ID")
     private String userId;

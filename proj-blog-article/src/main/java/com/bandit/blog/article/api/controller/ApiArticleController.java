@@ -1,5 +1,6 @@
 package com.bandit.blog.article.api.controller;
 
+import com.bandit.blog.article.req.ArticleListReq;
 import com.bandit.blog.article.service.IArticleService;
 import com.bandit.blog.util.base.Result;
 import io.swagger.annotations.Api;
@@ -30,5 +31,11 @@ public class ApiArticleController {
     @ApiImplicitParam(name = "id", value = "文章ID", required = true)
     public Result updateViewCount(@PathVariable("id") String id) {
         return articleService.updateViewCount(id);
+    }
+
+    @ApiOperation("查询公开且审核通过的文章信息-公开api接口")
+    @PostMapping("/list")
+    public Result findListByCategoryIdAndLabelId(@RequestBody ArticleListReq articleListReq) {
+        return articleService.findListByCategoryIdAndLabelId(articleListReq);
     }
 }

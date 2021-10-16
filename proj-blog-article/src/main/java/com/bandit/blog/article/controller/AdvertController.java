@@ -58,4 +58,5 @@ public class AdvertController {
         advertService.save(advert);
         return Result.ok();
     }
+
 }

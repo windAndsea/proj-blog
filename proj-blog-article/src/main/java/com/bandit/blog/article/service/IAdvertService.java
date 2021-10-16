@@ -38,4 +38,12 @@ public interface IAdvertService extends IService<Advert> {
      * @return 结果
      */
     Result modifyAdvert(Advert advert);
+
+    /**
+     * 通过广告展示位查询广告列表
+     *
+     * @param position 广告展示位
+     * @return 广告列表
+     */
+    Result findByPosition(int position);
 }

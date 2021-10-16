@@ -6,6 +6,7 @@ import com.bandit.blog.article.service.IAdvertService;
 import com.bandit.blog.entities.Advert;
 import com.bandit.blog.util.aliyun.AliyunUtil;
 import com.bandit.blog.util.base.Result;
+import com.bandit.blog.util.enums.StatusEnum;
 import com.bandit.blog.util.properties.BlogProperties;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -67,5 +69,15 @@ public class AdvertServiceImpl extends ServiceImpl<AdvertMapper, Advert> impleme
         advert.setUpdateDate(new Date());
         baseMapper.updateById(advert);
         return Result.ok();
+    }
+
+    @Override
+    public Result findByPosition(int position) {
+        QueryWrapper<Advert> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("status", StatusEnum.NORMAL.getCode());
+        queryWrapper.eq("position", position);
+        queryWrapper.orderByAsc("sort");
+        List<Advert> advertList = baseMapper.selectList(queryWrapper);
+        return Result.ok(advertList);
     }
 }

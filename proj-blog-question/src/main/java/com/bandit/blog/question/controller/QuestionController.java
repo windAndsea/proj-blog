@@ -1,0 +1,19 @@
+package com.bandit.blog.question.controller;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * <p>
+ * 问题信息表 前端控制器
+ * </p>
+ *
+ * @author bandit
+ * @since 2021-10-16
+ */
+@RestController
+@RequestMapping("/question/question")
+public class QuestionController {
+
+}

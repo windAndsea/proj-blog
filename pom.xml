@@ -12,6 +12,7 @@
         <module>proj-blog-api</module>
         <module>proj-blog-article</module>
         <module>proj-blog-generator</module>
+        <module>proj-blog-question</module>
     </modules>
 
     <packaging>pom</packaging>

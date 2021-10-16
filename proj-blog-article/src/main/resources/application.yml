@@ -42,9 +42,9 @@ proj:
   blog:
     aliyun:
       endpoint: https://oss-cn-shenzhen.aliyuncs.com
-      accessKeyId: LTAI5tMQdT9vpAHQCJpYppFY
-      accessKeySecret: zz3G7vbHwrFlsW3QFb8Nc8CTrRkrFY
-      bucketName: banditoct
-      bucketDomain: https://banditoct.oss-cn-shenzhen.aliyuncs.com/
+      accessKeyId: xxx
+      accessKeySecret: xxx
+      bucketName: xxx
+      bucketDomain: https://xxx.oss-cn-shenzhen.aliyuncs.com/
 
 

@@ -37,3 +37,14 @@ logging:
   level:
     com.bandit.blog.article.mapper: debug
 
+# 阿里云配置
+proj:
+  blog:
+    aliyun:
+      endpoint: https://oss-cn-shenzhen.aliyuncs.com
+      accessKeyId: LTAI5tPZg59VUsFzWMakChvZ
+      accessKeySecret: vo03MXsVgx9QT5mCqEIT9kVxKCmAqS
+      bucketName: banditoct
+      bucketDomain: https://banditoct.oss-cn-shenzhen.aliyuncs.com/
+
+

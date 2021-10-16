@@ -22,4 +22,20 @@ public interface IAdvertService extends IService<Advert> {
      * @return 结果
      */
     Result queryPage(AdvertReq advertReq);
+
+    /**
+     * 通过广告ID删除记录
+     *
+     * @param id 广告ID
+     * @return 结果
+     */
+    Result deleteAdvertById(String id);
+
+    /**
+     * 修改广告信息
+     *
+     * @param advert 广告信息
+     * @return 结果
+     */
+    Result modifyAdvert(Advert advert);
 }

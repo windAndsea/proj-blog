@@ -33,8 +33,8 @@ public class CommentController {
     }
 
     @ApiOperation(("新增评论"))
-    @PostMapping("/save")
-    public Result saveComment(@RequestBody Comment comment) {
+    @PostMapping("/add")
+    public Result addComment(@RequestBody Comment comment) {
         commentService.save(comment);
         return Result.ok();
     }

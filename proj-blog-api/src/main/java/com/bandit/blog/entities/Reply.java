@@ -1,6 +1,7 @@
 package com.bandit.blog.entities;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
@@ -10,6 +11,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -21,9 +23,9 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("t_blog_replay")
-@ApiModel(value="Replay对象", description="回答信息表")
-public class Replay implements Serializable {
+@TableName("t_blog_reply")
+@ApiModel(value="Reply对象", description="回答信息表")
+public class Reply implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -55,5 +57,7 @@ public class Replay implements Serializable {
     @ApiModelProperty(value = "创建时间")
     private Date createDate;
 
-
+    @ApiModelProperty(value = "子回复集合")
+    @TableField(exist = false)
+    private List<Reply> children;
 }

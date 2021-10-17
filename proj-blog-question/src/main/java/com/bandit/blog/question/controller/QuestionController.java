@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * @author bandit
  * @since 2021-10-16
  */
-@Api(tags = "问答管理接口")
+@Api(tags = "问题管理接口")
 @RestController
 @RequestMapping("/question")
 public class QuestionController {

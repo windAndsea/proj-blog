@@ -96,10 +96,10 @@ INSERT INTO `t_blog_question_label` VALUES ('1263472868644225026', '2', '11', '2
 INSERT INTO `t_blog_question_label` VALUES ('1263472868644225027', '2', '10', '2020-05-21 22:13:00');
 
 -- ----------------------------
--- Table structure for t_blog_replay
+-- Table structure for t_blog_reply
 -- ----------------------------
-DROP TABLE IF EXISTS `t_blog_replay`;
-CREATE TABLE `t_blog_replay`  (
+DROP TABLE IF EXISTS `t_blog_reply`;
+CREATE TABLE `t_blog_reply`  (
   `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键',
   `parent_id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '-1 表示正常回答，其他值表示是回答的回复',
   `user_id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '回答者id',
@@ -113,18 +113,18 @@ CREATE TABLE `t_blog_replay`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '回答信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of t_blog_replay
+-- Records of t_blog_reply
 -- ----------------------------
-INSERT INTO `t_blog_replay` VALUES ('1263082769691627522', '-1', NULL, NULL, NULL, '1', 'sdfsdf', '<p>sdfsdf</p>\n', '2020-05-20 20:22:53');
-INSERT INTO `t_blog_replay` VALUES ('1263084383596892161', '-1', NULL, NULL, NULL, '1263083780565028866', 'ASDASD', '<p>ASDASD</p>\n', '2020-05-20 20:29:18');
-INSERT INTO `t_blog_replay` VALUES ('1263118982020517890', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', '|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n', '<table>\n<thead>\n<tr>\n<th>column1</th>\n<th>column2</th>\n<th>column3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>content1</td>\n<td>content2</td>\n<td>content3</td>\n</tr>\n</tbody>\n</table>\n', '2020-05-20 22:46:47');
-INSERT INTO `t_blog_replay` VALUES ('1263119279073710082', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', '# 一级标题', '<h1><a id=\"_0\"></a>一级标题</h1>\n', '2020-05-20 22:47:58');
-INSERT INTO `t_blog_replay` VALUES ('1263119309906038785', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', '## 二级标题', '<h2><a id=\"_0\"></a>二级标题</h2>\n', '2020-05-20 22:48:05');
-INSERT INTO `t_blog_replay` VALUES ('1263119415938043906', '1263119309906038785', '10', '测试', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', NULL, '[微笑]', '2020-05-20 22:48:31');
-INSERT INTO `t_blog_replay` VALUES ('1263119476650594305', '1263119309906038785', '10', '测试', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', NULL, '这个回答不错', '2020-05-20 22:48:45');
-INSERT INTO `t_blog_replay` VALUES ('1263120769792266241', '-1', '10', '测试', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263120412383039489', '520记录明天', '<p>520记录明天</p>\n', '2020-05-20 22:53:53');
-INSERT INTO `t_blog_replay` VALUES ('1263469857066844162', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263469089899282433', 'asdfsdf', '<p>asdfsdf</p>\n', '2020-05-21 22:01:02');
-INSERT INTO `t_blog_replay` VALUES ('1263474773026013185', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '2', '|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n', '<table>\n<thead>\n<tr>\n<th>column1</th>\n<th>column2</th>\n<th>column3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>content1</td>\n<td>content2</td>\n<td>content3</td>\n</tr>\n</tbody>\n</table>\n', '2020-05-21 22:20:34');
-INSERT INTO `t_blog_replay` VALUES ('1288311186024198145', '-1', '9', '梦学谷', 'https://mengxuegu.oss-cn-shenzhen.aliyuncs.com/article/20200522/8665d73ae2484bd28bc2ff4103538385.png', '3', '|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n', '<table>\n<thead>\n<tr>\n<th>column1</th>\n<th>column2</th>\n<th>column3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>content1</td>\n<td>content2</td>\n<td>content3</td>\n</tr>\n</tbody>\n</table>\n', '2020-07-29 11:11:37');
+INSERT INTO `t_blog_reply` VALUES ('1263082769691627522', '-1', NULL, NULL, NULL, '1', 'sdfsdf', '<p>sdfsdf</p>\n', '2020-05-20 20:22:53');
+INSERT INTO `t_blog_reply` VALUES ('1263084383596892161', '-1', NULL, NULL, NULL, '1263083780565028866', 'ASDASD', '<p>ASDASD</p>\n', '2020-05-20 20:29:18');
+INSERT INTO `t_blog_reply` VALUES ('1263118982020517890', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', '|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n', '<table>\n<thead>\n<tr>\n<th>column1</th>\n<th>column2</th>\n<th>column3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>content1</td>\n<td>content2</td>\n<td>content3</td>\n</tr>\n</tbody>\n</table>\n', '2020-05-20 22:46:47');
+INSERT INTO `t_blog_reply` VALUES ('1263119279073710082', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', '# 一级标题', '<h1><a id=\"_0\"></a>一级标题</h1>\n', '2020-05-20 22:47:58');
+INSERT INTO `t_blog_reply` VALUES ('1263119309906038785', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', '## 二级标题', '<h2><a id=\"_0\"></a>二级标题</h2>\n', '2020-05-20 22:48:05');
+INSERT INTO `t_blog_reply` VALUES ('1263119415938043906', '1263119309906038785', '10', '测试', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', NULL, '[微笑]', '2020-05-20 22:48:31');
+INSERT INTO `t_blog_reply` VALUES ('1263119476650594305', '1263119309906038785', '10', '测试', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263117581294948353', NULL, '这个回答不错', '2020-05-20 22:48:45');
+INSERT INTO `t_blog_reply` VALUES ('1263120769792266241', '-1', '10', '测试', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263120412383039489', '520记录明天', '<p>520记录明天</p>\n', '2020-05-20 22:53:53');
+INSERT INTO `t_blog_reply` VALUES ('1263469857066844162', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '1263469089899282433', 'asdfsdf', '<p>asdfsdf</p>\n', '2020-05-21 22:01:02');
+INSERT INTO `t_blog_reply` VALUES ('1263474773026013185', '-1', '9', '梦学谷', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', '2', '|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n', '<table>\n<thead>\n<tr>\n<th>column1</th>\n<th>column2</th>\n<th>column3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>content1</td>\n<td>content2</td>\n<td>content3</td>\n</tr>\n</tbody>\n</table>\n', '2020-05-21 22:20:34');
+INSERT INTO `t_blog_reply` VALUES ('1288311186024198145', '-1', '9', '梦学谷', 'https://mengxuegu.oss-cn-shenzhen.aliyuncs.com/article/20200522/8665d73ae2484bd28bc2ff4103538385.png', '3', '|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n', '<table>\n<thead>\n<tr>\n<th>column1</th>\n<th>column2</th>\n<th>column3</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>content1</td>\n<td>content2</td>\n<td>content3</td>\n</tr>\n</tbody>\n</table>\n', '2020-07-29 11:11:37');
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bandit.blog.question.mapper.ReplyMapper">
+
+    <resultMap id="replyResultMap" type="Reply">
+        <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="user_id" property="userId"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_image" property="userImage"/>
+        <result column="question_id" property="questionId"/>
+        <result column="md_content" property="mdContent"/>
+        <result column="html_content" property="htmlContent"/>
+        <result column="create_date" property="createDate"/>
+
+        <collection property="children" select="findByParentId" column="id" javaType="list" ofType="Reply"/>
+    </resultMap>
+
+    <select id="findByQuestionId" resultMap="replyResultMap">
+        select r.id,
+               r.parent_id,
+               r.user_id,
+               r.nick_name,
+               r.user_image,
+               r.question_id,
+               r.md_content,
+               r.html_content,
+               r.create_date
+        from t_blog_reply r
+        where r.question_id = #{questionId}
+          and r.parent_id = '-1'
+        order by r.create_date desc
+    </select>
+
+    <select id="findByParentId" resultMap="replyResultMap">
+        select r.id,
+               r.parent_id,
+               r.user_id,
+               r.nick_name,
+               r.user_image,
+               r.question_id,
+               r.md_content,
+               r.html_content,
+               r.create_date
+        from t_blog_reply r
+        where r.parent_id = #{id}
+    </select>
+</mapper>

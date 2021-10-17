@@ -63,6 +63,10 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         queryWrapper.eq("parent_id", parentId);
 
         List<Comment> comments = baseMapper.selectList(queryWrapper);
+        if (CollectionUtils.isEmpty(comments)) {
+            return subCommentIds;
+        }
+
         for (Comment comment : comments) {
             String commentId = comment.getId();
             subCommentIds.add(commentId);
@@ -86,6 +90,10 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         queryWrapper.eq("parent_id", parentId);
 
         List<Comment> comments = baseMapper.selectList(queryWrapper);
+
+        if (CollectionUtils.isEmpty(comments)) {
+            return;
+        }
 
         for (Comment comment : comments) {
             String commentId = comment.getId();

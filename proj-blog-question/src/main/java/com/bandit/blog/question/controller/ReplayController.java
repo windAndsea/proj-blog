@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-10-16
  */
 @RestController
-@RequestMapping("/question/replay")
+@RequestMapping("/replay")
 public class ReplayController {
 
 }

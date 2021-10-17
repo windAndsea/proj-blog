@@ -1,6 +1,6 @@
 package com.bandit.blog.question.controller;
 
-
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @author bandit
  * @since 2021-10-16
  */
+@Api(tags = "问答管理接口")
 @RestController
-@RequestMapping("/question/question")
+@RequestMapping("/question")
 public class QuestionController {
 
 }

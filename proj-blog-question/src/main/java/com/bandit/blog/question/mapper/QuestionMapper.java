@@ -2,6 +2,8 @@ package com.bandit.blog.question.mapper;
 
 import com.bandit.blog.entities.Question;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -12,5 +14,12 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2021-10-16
  */
 public interface QuestionMapper extends BaseMapper<Question> {
-
+    /**
+     * 通过标签ID分页查询问题信息
+     *
+     * @param page 分页配置
+     * @param labelId 标签ID
+     * @return 结果
+     */
+    IPage<Question> queryListByLabelId(IPage<Question> page, @Param("labelId") String labelId);
 }

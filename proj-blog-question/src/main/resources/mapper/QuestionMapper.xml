@@ -64,4 +64,16 @@
                            ON q.id = ql.question_id
         WHERE q.id = #{id}
     </select>
+
+    <delete id="deleteQuestionLabelByQuestionId">
+        delete from t_blog_question_label where question_id = #{questionId}
+    </delete>
+
+    <insert id="insertQuestionLabel">
+        insert into t_blog_question_label(id, question_id, label_id)
+        values
+        <foreach collection="labelIds" item="item" separator=",">
+            ('${@com.baomidou.mybatisplus.core.toolkit.IdWorker@getId()}', #{questionId}, #{item})
+        </foreach>
+    </insert>
 </mapper>

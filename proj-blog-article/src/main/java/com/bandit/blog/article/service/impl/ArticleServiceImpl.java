@@ -79,6 +79,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public Result updateStatus(String id, ArticleStatusEnum articleStatusEnum) {
         Article article = baseMapper.selectById(id);
+        if (article == null) {
+            Result.error("the article is not exist");
+        }
         article.setStatus(articleStatusEnum.getCode());
         article.setUpdateDate(new Date());
         baseMapper.updateById(article);
@@ -113,7 +116,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         Article article = baseMapper.selectById(id);
         if (article == null) {
-
             return Result.error("article is not exist.");
         }
         int thumbHup = article.getThumhup();

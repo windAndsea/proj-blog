@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
  * 问题信息表 Mapper 接口
@@ -30,4 +32,21 @@ public interface QuestionMapper extends BaseMapper<Question> {
      * @return 结果
      */
     Question findQuestionAndLabelIdsById(String id);
+
+    /**
+     * 通过问题ID删除问题标签关系表数据
+     *
+     * @param questionId 问题ID
+     * @return 结果
+     */
+    boolean deleteQuestionLabelByQuestionId(@Param("questionId") String questionId);
+
+    /**
+     * 新增问题标签关系数据
+     *
+     * @param questionId 问题ID
+     * @param labelIds 标签集合
+     * @return 结果
+     */
+    boolean insertQuestionLabel(@Param("questionId") String questionId, @Param("labelIds") List<String> labelIds);
 }

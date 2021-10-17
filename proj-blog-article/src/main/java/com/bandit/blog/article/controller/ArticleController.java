@@ -84,7 +84,7 @@ public class ArticleController {
     @ApiOperation("更新点赞数")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "文章ID", required = true),
-            @ApiImplicitParam(name = "count", value = "点赞数", required = true)
+            @ApiImplicitParam(name = "count", value = "点赞数（只能是1或-1）", required = true)
     })
     @PostMapping("/thumb/{id}/{count}")
     public Result updateThumbHup(@PathVariable("id") String id, @PathVariable("count") int count) {

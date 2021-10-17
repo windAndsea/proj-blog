@@ -57,4 +57,11 @@ public class ApiQuestionController {
     public Result viewQuestion(@PathVariable("id") String id) {
         return  questionService.findQuestionById(id);
     }
+
+    @ApiOperation("更新问题浏览次数-公开api接口")
+    @PostMapping("/view/count/{id}")
+    @ApiImplicitParam(name = "id", value = "问题ID", required = true)
+    public Result updateViewCount(@PathVariable("id") String id) {
+        return questionService.updateViewCount(id);
+    }
 }

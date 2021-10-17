@@ -137,7 +137,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         Article article = baseMapper.selectById(id);
         if (article == null) {
-
             return Result.error("article is not exist.");
         }
         article.setViewCount(article.getViewCount() + 1);

@@ -54,4 +54,12 @@ public interface IQuestionService extends IService<Question> {
      * @return 结果
      */
     Result findQuestionById(String id);
+
+    /**
+     * 更新问题浏览数
+     *
+     * @param id 问题ID
+     * @return 结果
+     */
+    Result updateViewCount(String id);
 }

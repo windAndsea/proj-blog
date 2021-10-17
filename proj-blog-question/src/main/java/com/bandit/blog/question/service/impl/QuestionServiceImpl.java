@@ -12,9 +12,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * <p>
@@ -82,5 +80,20 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         }
 
         return Result.ok(question);
+    }
+
+    @Override
+    public Result updateViewCount(String id) {
+        if (org.apache.commons.lang3.StringUtils.isEmpty(id)) {
+            return Result.error("invalid operation");
+        }
+
+        Question question = baseMapper.selectById(id);
+        if (question == null) {
+            return Result.error("question is not exist.");
+        }
+        question.setViewCount(question.getViewCount() + 1);
+        baseMapper.updateById(question);
+        return Result.ok();
     }
 }

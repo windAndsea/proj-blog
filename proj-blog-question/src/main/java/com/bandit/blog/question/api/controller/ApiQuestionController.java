@@ -51,4 +51,10 @@ public class ApiQuestionController {
         return questionService.findQuestionByLabelId(baseRequest, labelId);
     }
 
+    @ApiOperation("通过问题ID查询问题详情")
+    @GetMapping("/view/{id}")
+    @ApiImplicitParam(name = "id", value = "问题ID", required = true)
+    public Result viewQuestion(@PathVariable("id") String id) {
+        return  questionService.findQuestionById(id);
+    }
 }

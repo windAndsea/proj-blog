@@ -46,4 +46,12 @@ public interface IQuestionService extends IService<Question> {
      * @return 结果
      */
     Result findQuestionByLabelId(BaseRequest<Question> request, String labelId);
+
+    /**
+     * 通过问题ID查询问题信息
+     *
+     * @param id 问题ID
+     * @return 结果
+     */
+    Result findQuestionById(String id);
 }

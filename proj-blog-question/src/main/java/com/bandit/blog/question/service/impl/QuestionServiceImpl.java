@@ -9,6 +9,7 @@ import com.bandit.blog.util.base.Result;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -66,5 +67,20 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         }
 
         return Result.ok(baseMapper.queryListByLabelId(request.getPage(), labelId));
+    }
+
+    @Override
+    public Result findQuestionById(String id) {
+        // 1，查询问题信息
+        Question question = baseMapper.findQuestionAndLabelIdsById(id);
+        if (question == null) {
+            return Result.error("cannot find question info");
+        }
+
+        if (CollectionUtils.isNotEmpty(question.getLabelIds())) {
+            // TODO 2，通过feign远程调用article接口获取标签信息
+        }
+
+        return Result.ok(question);
     }
 }

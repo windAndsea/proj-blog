@@ -23,4 +23,45 @@
         ORDER BY
             q.update_date DESC
     </select>
+
+    <resultMap id="questionAndLabelsResultMap" type="Question">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_image" property="userImage"/>
+        <result column="title" property="title"/>
+        <result column="md_content" property="mdContent"/>
+        <result column="html_content" property="htmlContent"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="thumhup" property="thumhup"/>
+        <result column="reply" property="reply"/>
+        <result column="status" property="status"/>
+        <result column="create_date" property="createDate"/>
+        <result column="update_date" property="updateDate"/>
+
+        <collection property="labelIds" javaType="list" ofType="string">
+            <id column="label_id" property="id"/>
+        </collection>
+    </resultMap>
+
+    <select id="findQuestionAndLabelIdsById" resultMap="questionAndLabelsResultMap">
+        SELECT q.id,
+               q.user_id,
+               q.nick_name,
+               q.user_image,
+               q.title,
+               q.md_content,
+               q.html_content,
+               q.view_count,
+               q.thumhup,
+               q.reply,
+               q.`status`,
+               q.create_date,
+               q.update_date,
+               ql.label_id
+        FROM t_blog_question q
+                 LEFT JOIN t_blog_question_label ql
+                           ON q.id = ql.question_id
+        WHERE q.id = #{id}
+    </select>
 </mapper>

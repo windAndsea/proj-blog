@@ -4,6 +4,7 @@ import com.aliyuncs.utils.StringUtils;
 import com.bandit.blog.entities.Article;
 import com.bandit.blog.entities.Question;
 import com.bandit.blog.question.mapper.QuestionMapper;
+import com.bandit.blog.question.req.QuestionUserReq;
 import com.bandit.blog.question.service.IQuestionService;
 import com.bandit.blog.util.base.BaseRequest;
 import com.bandit.blog.util.base.Result;
@@ -162,5 +163,20 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
 
         baseMapper.updateById(question);
         return Result.ok();
+    }
+
+    @Override
+    public Result findQuestionByCon(QuestionUserReq req) {
+        if (StringUtils.isEmpty(req.getUserId())) {
+            return Result.error("userId cannot be empty");
+        }
+
+        QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
+        // 排除已删除的问题
+        queryWrapper.in("status", Arrays.asList(1, 2));
+
+        queryWrapper.eq("user_id", req.getUserId());
+        queryWrapper.orderByDesc("update_date");
+        return Result.ok(baseMapper.selectPage(req.getPage(), queryWrapper));
     }
 }

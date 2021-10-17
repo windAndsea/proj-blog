@@ -1,6 +1,7 @@
 package com.bandit.blog.question.controller;
 
 import com.bandit.blog.entities.Question;
+import com.bandit.blog.question.req.QuestionUserReq;
 import com.bandit.blog.question.service.IQuestionService;
 import com.bandit.blog.util.base.Result;
 import io.swagger.annotations.Api;
@@ -52,5 +53,11 @@ public class QuestionController {
     @PostMapping("/thumb/{id}/{count}")
     public Result updateThumbHup(@PathVariable("id") String id, @PathVariable("count") int count) {
         return questionService.updateThumbHup(id, count);
+    }
+
+    @ApiOperation("查询用户问题信息")
+    @PostMapping("/user")
+    public Result queryUserQuestion(@RequestBody QuestionUserReq questionUserReq) {
+        return questionService.findQuestionByCon(questionUserReq);
     }
 }

@@ -1,6 +1,7 @@
 package com.bandit.blog.question.service;
 
 import com.bandit.blog.entities.Question;
+import com.bandit.blog.question.req.QuestionUserReq;
 import com.bandit.blog.util.base.BaseRequest;
 import com.bandit.blog.util.base.Result;
 import com.bandit.blog.util.enums.ArticleStatusEnum;
@@ -83,7 +84,7 @@ public interface IQuestionService extends IService<Question> {
     /**
      * 更新问题状态
      *
-     * @param id                问题id
+     * @param id     问题id
      * @param status 状态
      * @return 结果
      */
@@ -97,4 +98,12 @@ public interface IQuestionService extends IService<Question> {
      * @return 结果
      */
     Result updateThumbHup(String id, int count);
+
+    /**
+     * 通过用户条件查询问题
+     *
+     * @param req 用户问题请求参数
+     * @return 结果
+     */
+    Result findQuestionByCon(QuestionUserReq req);
 }

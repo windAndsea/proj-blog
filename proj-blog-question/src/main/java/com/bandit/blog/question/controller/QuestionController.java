@@ -60,4 +60,10 @@ public class QuestionController {
     public Result queryUserQuestion(@RequestBody QuestionUserReq questionUserReq) {
         return questionService.findQuestionByCon(questionUserReq);
     }
+
+    @ApiOperation("统计问题总数")
+    @GetMapping("/total")
+    public Result countQuestionTotal() {
+        return questionService.countQuestionTotal();
+    }
 }

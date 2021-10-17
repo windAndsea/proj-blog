@@ -106,4 +106,11 @@ public interface IQuestionService extends IService<Question> {
      * @return 结果
      */
     Result findQuestionByCon(QuestionUserReq req);
+
+    /**
+     * 统计问题总数
+     *
+     * @return 问题数
+     */
+    Result countQuestionTotal();
 }

@@ -179,4 +179,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         queryWrapper.orderByDesc("update_date");
         return Result.ok(baseMapper.selectPage(req.getPage(), queryWrapper));
     }
+
+    @Override
+    public Result countQuestionTotal() {
+        QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
+        queryWrapper.in("status", Arrays.asList(1, 2));
+        int count = baseMapper.selectCount(queryWrapper);
+        return Result.ok(count);
+    }
 }

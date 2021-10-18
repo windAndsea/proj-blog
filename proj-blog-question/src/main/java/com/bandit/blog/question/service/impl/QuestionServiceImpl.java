@@ -1,6 +1,7 @@
 package com.bandit.blog.question.service.impl;
 
 import com.bandit.blog.entities.Question;
+import com.bandit.blog.feign.IFeignArticleController;
 import com.bandit.blog.question.mapper.QuestionMapper;
 import com.bandit.blog.question.req.QuestionUserReq;
 import com.bandit.blog.question.service.IQuestionService;
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +29,9 @@ import java.util.Date;
  */
 @Service
 public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> implements IQuestionService {
+    @Autowired
+    private IFeignArticleController feignArticleController;
+
     @Override
     public Result findHotQuestion(BaseRequest<Question> request) {
         QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
@@ -79,7 +84,8 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         }
 
         if (CollectionUtils.isNotEmpty(question.getLabelIds())) {
-            // TODO 2，通过feign远程调用article接口获取标签信息
+            // 2，通过feign远程调用article接口获取标签信息
+            question.setLabelList(feignArticleController.queryLabelByLabelIds(question.getLabelIds()));
         }
 
         return Result.ok(question);

@@ -81,4 +81,17 @@ public class ReplyServiceImpl extends ServiceImpl<ReplyMapper, Reply> implements
             this.findSubRelyIdsByParent(replyIds, replyId);
         }
     }
+
+    @Transactional
+    @Override
+    public Result addReply(Reply reply) {
+        boolean saveRes = this.save(reply);
+        if (saveRes) {
+            // 更新问题表回复数
+            Question question = questionMapper.selectById(reply.getQuestionId());
+            question.setReply(question.getReply() + 1);
+            questionMapper.updateById(question);
+        }
+        return Result.ok();
+    }
 }

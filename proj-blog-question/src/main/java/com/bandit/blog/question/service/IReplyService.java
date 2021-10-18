@@ -31,4 +31,12 @@ public interface IReplyService extends IService<Reply> {
      * @return 结果
      */
     Result deleteById(String id);
+
+    /**
+     * 新增回复
+     *
+     * @param reply 回复对象
+     * @return 结果
+     */
+    Result addReply(Reply reply);
 }

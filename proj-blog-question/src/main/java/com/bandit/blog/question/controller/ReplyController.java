@@ -1,16 +1,13 @@
 package com.bandit.blog.question.controller;
 
+import com.bandit.blog.entities.Reply;
 import com.bandit.blog.question.service.IReplyService;
 import com.bandit.blog.util.base.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -32,5 +29,11 @@ public class ReplyController {
     @ApiImplicitParam(name = "id", value = "回复ID", required = true)
     public Result deleteById(@PathVariable("id") String id) {
         return replyService.deleteById(id);
+    }
+
+    @ApiOperation("新增回复")
+    @PostMapping("/save")
+    public Result addReply(@RequestBody Reply reply) {
+        return replyService.addReply(reply);
     }
 }

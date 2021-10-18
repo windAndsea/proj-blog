@@ -27,7 +27,7 @@
     <!--依赖版本管理-->
     <properties>
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
-        <cloud-alibaba.version>2.2.0.RELEASE</cloud-alibaba.version>
+        <cloud-alibaba.version>2.2.6.RELEASE</cloud-alibaba.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <druid.version>1.1.21</druid.version>
         <kaptcha.version>2.3.2</kaptcha.version>

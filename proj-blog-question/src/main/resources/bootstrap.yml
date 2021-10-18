@@ -1,0 +1,13 @@
+# nacos 配置中心相关配置
+spring:
+  application:
+    name: question-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+  profiles:
+    active: dev  # 指定环境，读取nacos上的question-server-dev.yml配置

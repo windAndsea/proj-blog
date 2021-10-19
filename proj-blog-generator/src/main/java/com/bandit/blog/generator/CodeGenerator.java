@@ -16,13 +16,13 @@ import java.util.Scanner;
 
 public class CodeGenerator {
     // 数据库名称
-    private static String DATABASE_NAME = "blog_question";
+    private static String DATABASE_NAME = "blog_system";
 
     // 生成的代码放到哪个工程中
-    private static String PROJECT_NAME = "proj-blog-question";
+    private static String PROJECT_NAME = "proj-blog-system";
 
     // 子包名
-    private static String MODULE_NAME = "question";
+    private static String MODULE_NAME = "system";
 
     public static void main(String[] args) {
         // 代码生成器

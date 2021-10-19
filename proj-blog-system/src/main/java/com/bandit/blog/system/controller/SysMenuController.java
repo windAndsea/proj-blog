@@ -42,7 +42,7 @@ public class SysMenuController {
 
     @ApiOperation("新增菜单信息")
     @PostMapping("/add")
-    public Result addLabel(@RequestBody SysMenu sysMenu) {
+    public Result addMenu(@RequestBody SysMenu sysMenu) {
         sysMenuService.save(sysMenu);
         return Result.ok();
     }
@@ -50,14 +50,14 @@ public class SysMenuController {
     @ApiOperation("查询菜单详情")
     @ApiImplicitParam(name = "id", value = "标签ID", required = true)
     @GetMapping("/view/{id}")
-    public Result viewLabel(@PathVariable("id") String id) {
+    public Result viewMenu(@PathVariable("id") String id) {
         SysMenu sysMenu = sysMenuService.getById(id);
         return Result.ok(sysMenu);
     }
 
     @ApiOperation("修改菜单信息")
     @PostMapping("/modify")
-    public Result updateLabel(@RequestBody SysMenu sysMenu) {
+    public Result updateMenu(@RequestBody SysMenu sysMenu) {
         sysMenu.setUpdateDate(new Date());
         sysMenuService.updateById(sysMenu);
         return Result.ok();

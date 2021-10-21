@@ -2,6 +2,7 @@ package com.bandit.blog.question.service.impl;
 
 import com.bandit.blog.entities.Question;
 import com.bandit.blog.feign.IFeignArticleController;
+import com.bandit.blog.feign.req.UserInfoReq;
 import com.bandit.blog.question.mapper.QuestionMapper;
 import com.bandit.blog.question.req.QuestionUserReq;
 import com.bandit.blog.question.service.IQuestionService;
@@ -190,5 +191,10 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         queryWrapper.in("status", Arrays.asList(1, 2));
         int count = baseMapper.selectCount(queryWrapper);
         return Result.ok(count);
+    }
+
+    @Override
+    public boolean updateUserInfo(UserInfoReq userInfoReq) {
+        return baseMapper.updateUserInfo(userInfoReq);
     }
 }

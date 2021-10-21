@@ -6,6 +6,7 @@ import com.bandit.blog.article.req.ArticleReq;
 import com.bandit.blog.article.req.ArticleUserReq;
 import com.bandit.blog.article.service.IArticleService;
 import com.bandit.blog.entities.Article;
+import com.bandit.blog.feign.req.UserInfoReq;
 import com.bandit.blog.util.base.Result;
 import com.bandit.blog.util.enums.ArticleStatusEnum;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -189,5 +190,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         dataMap.put("yearMonthList", yearMonthList);
         dataMap.put("articleTotalList", articleTotalList);
         return Result.ok(dataMap);
+    }
+
+    @Override
+    public boolean updateUserInfo(UserInfoReq userInfoReq) {
+        return baseMapper.updateUserInfo(userInfoReq);
     }
 }

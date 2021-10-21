@@ -5,15 +5,19 @@ import com.bandit.blog.system.mapper.SysMenuMapper;
 import com.bandit.blog.system.req.SysMenuReq;
 import com.bandit.blog.system.service.ISysMenuService;
 import com.bandit.blog.util.base.Result;
+import com.bandit.blog.util.enums.ResultEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -95,5 +99,31 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         lambdaQueryWrapper.eq(SysMenu::getParentId, id);
         baseMapper.delete(lambdaQueryWrapper);
         return Result.ok();
+    }
+
+    @Override
+    public Result findUserMenuTree(String userId) {
+        List<SysMenu> menuList = baseMapper.queryUserMenu(userId);
+        if (CollectionUtils.isEmpty(menuList) || menuList.get(0) == null) {
+            return Result.build(ResultEnum.SUCCESS);
+        }
+
+        List<SysMenu> dirMenuList = new ArrayList<>();
+        List<String> buttonList = new ArrayList<>();
+
+        for (SysMenu menu: menuList) {
+            if (menu.getType() == 1 || menu.getType() == 2) {
+                dirMenuList.add(menu);
+                continue;
+            }
+            buttonList.add(menu.getCode());
+        }
+
+        List<SysMenu> menuTreeList = this.buildTreeData(dirMenuList);
+
+        Map<String, Object> resMap = new HashMap<>();
+        resMap.put("menuTreeList", menuTreeList);
+        resMap.put("buttonList", buttonList);
+        return Result.ok(resMap);
     }
 }

@@ -104,4 +104,15 @@
         select v.`year_month`, v.total
         from v_article_latest_six_month_publish_total v
     </select>
+
+    <update id="updateUserInfo">
+        update t_blog_article
+        set nick_name  = #{nickName},
+            user_image = #{userImage}
+        where user_id = #{userId};
+        update t_blog_comment
+        set nick_name  = #{nickName},
+            user_image = #{userImage}
+        where user_id = #{userId};
+    </update>
 </mapper>

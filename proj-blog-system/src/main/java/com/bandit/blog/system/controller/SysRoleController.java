@@ -6,6 +6,7 @@ import com.bandit.blog.system.service.ISysRoleService;
 import com.bandit.blog.util.base.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -72,7 +73,11 @@ public class SysRoleController {
     }
 
     @ApiOperation("新增角色菜单关系数据")
-    @ApiImplicitParam(name = "roleId", value = "角色ID", required = true)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "roleId", value = "角色ID", required = true),
+            @ApiImplicitParam(allowMultiple = true, dataType = "String", name = "menuIds", value = "菜单ID集合", required
+                    = true)
+    })
     @PostMapping("/{roleId}/menu/add")
     public Result addRoleMenu(@PathVariable("roleId") String roleId, @RequestBody List<String> menuIds) {
         return sysRoleService.saveRoleMenu(roleId, menuIds);

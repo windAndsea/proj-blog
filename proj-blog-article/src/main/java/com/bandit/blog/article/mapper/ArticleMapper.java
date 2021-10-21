@@ -2,6 +2,7 @@ package com.bandit.blog.article.mapper;
 
 import com.bandit.blog.article.req.ArticleListReq;
 import com.bandit.blog.entities.Article;
+import com.bandit.blog.feign.req.UserInfoReq;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Param;
@@ -66,4 +67,12 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @return 结果
      */
     List<Map<String, String>> selectLatestSixMonthArticleTotal();
+
+    /**
+     * 更新文章和评论表中的用户信息
+     *
+     * @param userInfoReq 请求参数
+     * @return 结果
+     */
+    boolean updateUserInfo(UserInfoReq userInfoReq);
 }

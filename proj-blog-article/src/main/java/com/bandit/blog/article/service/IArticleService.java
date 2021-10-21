@@ -4,6 +4,7 @@ import com.bandit.blog.article.req.ArticleListReq;
 import com.bandit.blog.article.req.ArticleReq;
 import com.bandit.blog.article.req.ArticleUserReq;
 import com.bandit.blog.entities.Article;
+import com.bandit.blog.feign.req.UserInfoReq;
 import com.bandit.blog.util.base.Result;
 import com.bandit.blog.util.enums.ArticleStatusEnum;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -103,4 +104,12 @@ public interface IArticleService extends IService<Article> {
      * @return 结果
      */
     Result countLatestSixMonthPublishArticleTotal();
+
+    /**
+     * 更新文章和评论表中的用户信息
+     *
+     * @param userInfoReq 请求参数
+     * @return 结果
+     */
+    boolean updateUserInfo(UserInfoReq userInfoReq);
 }

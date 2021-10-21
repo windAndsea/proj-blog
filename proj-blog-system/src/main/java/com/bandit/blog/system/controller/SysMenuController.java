@@ -62,4 +62,11 @@ public class SysMenuController {
         sysMenuService.updateById(sysMenu);
         return Result.ok();
     }
+
+    @ApiOperation("获取用户菜单及按钮权限")
+    @PostMapping("/user/{userId}")
+    @ApiImplicitParam(name = "userId", value = "用户ID", required = true)
+    public Result findUserMenu(@PathVariable("userId") String userId) {
+        return sysMenuService.findUserMenuTree(userId);
+    }
 }

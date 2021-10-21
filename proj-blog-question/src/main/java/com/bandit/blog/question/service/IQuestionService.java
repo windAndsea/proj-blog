@@ -1,6 +1,7 @@
 package com.bandit.blog.question.service;
 
 import com.bandit.blog.entities.Question;
+import com.bandit.blog.feign.req.UserInfoReq;
 import com.bandit.blog.question.req.QuestionUserReq;
 import com.bandit.blog.util.base.BaseRequest;
 import com.bandit.blog.util.base.Result;
@@ -113,4 +114,12 @@ public interface IQuestionService extends IService<Question> {
      * @return 问题数
      */
     Result countQuestionTotal();
+
+    /**
+     * 更新问题表和回答表中的用户信息
+     *
+     * @param userInfoReq 请求参数
+     * @return 结果
+     */
+    boolean updateUserInfo(UserInfoReq userInfoReq);
 }

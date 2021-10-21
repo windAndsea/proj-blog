@@ -76,4 +76,15 @@
             ('${@com.baomidou.mybatisplus.core.toolkit.IdWorker@getId()}', #{questionId}, #{item})
         </foreach>
     </insert>
+
+    <update id="updateUserInfo">
+        update t_blog_question
+        set nick_name  = #{nickName},
+            user_image = #{userImage}
+        where user_id = #{userId};
+        update t_blog_reply
+        set nick_name  = #{nickName},
+            user_image = #{userImage}
+        where user_id = #{userId};
+    </update>
 </mapper>

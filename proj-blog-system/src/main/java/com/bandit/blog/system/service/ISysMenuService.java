@@ -29,4 +29,12 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return 结果
      */
     Result deleteById(String id);
+
+    /**
+     * 通过用户ID查询用户菜单树
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    Result findUserMenuTree(String userId);
 }

@@ -1,6 +1,7 @@
 package com.bandit.blog.question.mapper;
 
 import com.bandit.blog.entities.Question;
+import com.bandit.blog.feign.req.UserInfoReq;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Param;
@@ -49,4 +50,12 @@ public interface QuestionMapper extends BaseMapper<Question> {
      * @return 结果
      */
     boolean insertQuestionLabel(@Param("questionId") String questionId, @Param("labelIds") List<String> labelIds);
+
+    /**
+     * 更新问题表和回答表中的用户信息
+     *
+     * @param userInfoReq 请求参数
+     * @return 结果
+     */
+    boolean updateUserInfo(UserInfoReq userInfoReq);
 }

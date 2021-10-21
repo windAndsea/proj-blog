@@ -14,6 +14,7 @@
         <module>proj-blog-generator</module>
         <module>proj-blog-question</module>
         <module>proj-blog-system</module>
+        <module>proj-blog-oauth2</module>
     </modules>
 
     <packaging>pom</packaging>

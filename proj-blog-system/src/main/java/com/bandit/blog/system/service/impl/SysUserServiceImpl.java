@@ -204,4 +204,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         this.save(sysUser);
         return Result.ok();
     }
+
+    @Override
+    public SysUser findByUsername(String username) {
+        LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(SysUser::getUsername, username);
+        SysUser sysUser = baseMapper.selectOne(lambdaQueryWrapper);
+        return sysUser;
+    }
 }

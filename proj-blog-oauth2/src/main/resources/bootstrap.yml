@@ -1,7 +1,7 @@
 # nacos 配置中心相关配置
 spring:
   application:
-    name: article-server
+    name: auth-server
   cloud:
     nacos:
       discovery:
@@ -10,4 +10,4 @@ spring:
         server-addr: 127.0.0.1:8848
         file-extension: yml
   profiles:
-    active: dev  # 指定环境，读取nacos上的article-server-dev.yml配置
+    active: dev  # 指定环境，读取nacos上的auth-server-dev.yml配置

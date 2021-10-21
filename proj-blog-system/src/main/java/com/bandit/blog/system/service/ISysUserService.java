@@ -98,4 +98,12 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 结果
      */
     Result register(RegisterReq registerReq);
+
+    /**
+     * 通过用户名查询用户信息
+     *
+     * @param username 用户名
+     * @return 结果
+     */
+    SysUser findByUsername(String username);
 }

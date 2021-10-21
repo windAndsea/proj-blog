@@ -14,10 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -125,5 +122,14 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         resMap.put("menuTreeList", menuTreeList);
         resMap.put("buttonList", buttonList);
         return Result.ok(resMap);
+    }
+
+    @Override
+    public List<SysMenu> findMenuByUserId(String userId) {
+        List<SysMenu> menuList = baseMapper.queryUserMenu(userId);
+        if (CollectionUtils.isEmpty(menuList) || menuList.get(0) == null) {
+            return Collections.EMPTY_LIST;
+        }
+        return menuList;
     }
 }

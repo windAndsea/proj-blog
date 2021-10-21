@@ -5,6 +5,8 @@ import com.bandit.blog.system.req.SysMenuReq;
 import com.bandit.blog.util.base.Result;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 菜单信息表 服务类
@@ -37,4 +39,12 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return 结果
      */
     Result findUserMenuTree(String userId);
+
+    /**
+     * 通过用户ID查询用户菜单
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    List<SysMenu> findMenuByUserId(String userId);
 }

@@ -40,7 +40,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Autowired
-    private JwtTokenEnhancer jwtTokenEnhancer;
+    private TokenEnhancer jwtTokenEnhancer;
 
     @Bean
     public ClientDetailsService jdbcClientDetailService() {

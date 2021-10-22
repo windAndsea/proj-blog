@@ -1,6 +1,6 @@
 package com.bandit.blog.auth.config;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
 import com.bandit.blog.auth.service.impl.JwtUser;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -17,7 +17,7 @@ public class JwtTokenEnhancer implements TokenEnhancer {
     public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
         JwtUser jwtUser = (JwtUser) oAuth2Authentication.getPrincipal();
         Map<String, Object> map = new HashMap<>();
-        map.put("userInfo", JSONObject.toJSONString(jwtUser));
+        map.put("userInfo", JSON.toJSON(jwtUser));
         ((DefaultOAuth2AccessToken)oAuth2AccessToken).setAdditionalInformation(map);
         return oAuth2AccessToken;
     }

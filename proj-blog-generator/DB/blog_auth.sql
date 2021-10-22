@@ -58,7 +58,7 @@ CREATE TABLE `oauth_client_details`  (
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-INSERT INTO `oauth_client_details` VALUES ('mxg-blog-admin', '', '$2a$10$uA51hWL5yusFBoEvZOAZbeaYYqUaFV7xjdDB8GA.4iViNiCSK9xKO', 'all', 'password,refresh_token', '', 'all', NULL, NULL, NULL, 'false');
+INSERT INTO `oauth_client_details` VALUES ('bandit', '', '$2a$10$U9ePQCJYT6F4B0D4SdznK.P0CA2T5UZoVzkYBqbws6UnB5q8ePJFS', 'all', 'password,refresh_token', '', 'all', NULL, NULL, NULL, 'false');
 
 -- ----------------------------
 -- Table structure for oauth_client_token

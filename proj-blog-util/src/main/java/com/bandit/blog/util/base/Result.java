@@ -1,5 +1,6 @@
 package com.bandit.blog.util.base;
 
+import com.alibaba.fastjson.JSON;
 import com.bandit.blog.util.enums.ResultEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,5 +49,9 @@ public final class Result implements Serializable {
     public static Result build(ResultEnum resultEnum) {
         LOGGER.debug("response: code={}, message={}", resultEnum.getCode(), resultEnum.getDesc());
         return new Result(resultEnum.getCode(), resultEnum.getDesc(), null);
+    }
+
+    public String toJsonString() {
+        return JSON.toJSONString(this);
     }
 }

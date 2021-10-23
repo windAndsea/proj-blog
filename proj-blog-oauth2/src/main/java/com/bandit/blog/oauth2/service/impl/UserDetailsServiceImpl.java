@@ -1,4 +1,4 @@
-package com.bandit.blog.auth.service.impl;
+package com.bandit.blog.oauth2.service.impl;
 
 import com.bandit.blog.entities.SysMenu;
 import com.bandit.blog.entities.SysUser;

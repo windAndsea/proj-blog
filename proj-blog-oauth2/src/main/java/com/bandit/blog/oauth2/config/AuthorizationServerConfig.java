@@ -1,4 +1,4 @@
-package com.bandit.blog.auth.config;
+package com.bandit.blog.oauth2.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@EnableAuthorizationServer
+@EnableAuthorizationServer // 标识认证服务器
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private DataSource dataSource;

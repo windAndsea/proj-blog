@@ -1,4 +1,4 @@
-package com.bandit.blog.auth.constants;
+package com.bandit.blog.oauth2.constants;
 
 public interface OAuthConstants {
     /**

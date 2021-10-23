@@ -1,6 +1,6 @@
 package com.bandit.blog.buz.controller;
 
-import com.bandit.blog.auth.constants.OAuthConstants;
+import com.bandit.blog.oauth2.constants.OAuthConstants;
 import com.bandit.blog.buz.service.IAuthService;
 import com.bandit.blog.util.base.Result;
 import com.bandit.blog.util.tools.RequestUtil;

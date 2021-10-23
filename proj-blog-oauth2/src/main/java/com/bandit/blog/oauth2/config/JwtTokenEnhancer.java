@@ -1,7 +1,7 @@
-package com.bandit.blog.auth.config;
+package com.bandit.blog.oauth2.config;
 
 import com.alibaba.fastjson.JSON;
-import com.bandit.blog.auth.service.impl.JwtUser;
+import com.bandit.blog.oauth2.service.impl.JwtUser;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;

@@ -1,6 +1,6 @@
-package com.bandit.blog.auth;
+package com.bandit.blog.oauth2;
 
-import com.bandit.blog.auth.constants.OAuthConstants;
+import com.bandit.blog.oauth2.constants.OAuthConstants;
 import com.bandit.blog.util.base.Result;
 import com.bandit.blog.util.enums.ResultEnum;
 import com.bandit.blog.util.tools.RequestUtil;

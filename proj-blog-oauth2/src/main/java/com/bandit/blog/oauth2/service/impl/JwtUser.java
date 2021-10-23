@@ -1,4 +1,4 @@
-package com.bandit.blog.auth.service.impl;
+package com.bandit.blog.oauth2.service.impl;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;

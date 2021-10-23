@@ -1,4 +1,4 @@
-package com.bandit.blog.auth;
+package com.bandit.blog.oauth2;
 
 import com.bandit.blog.util.base.Result;
 import org.apache.commons.lang.StringUtils;

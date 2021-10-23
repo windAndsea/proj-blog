@@ -1,4 +1,4 @@
-package com.bandit.blog.auth.config;
+package com.bandit.blog.oauth2.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

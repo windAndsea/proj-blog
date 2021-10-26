@@ -142,11 +142,11 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
-            <!--springboot 打包插件-->
+            <!--springboot 打包插件 存在非web子模块时，不能在父工程下引入，否则会在mvn install时报错
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            </plugin> -->
         </plugins>
         <resources>
             <resource>

@@ -13,7 +13,7 @@ FROM t_blog_category c
       AND a.ispublic = 1
     GROUP BY al.label_id
 ) t ON l.id = t.label_id
-GROUP BY c.`name`
+GROUP BY c.`name`;
 
 -- 统计近6个月发布的文章数
 CREATE VIEW v_article_latest_six_month_publish_total AS
